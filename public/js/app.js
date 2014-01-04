@@ -13,7 +13,7 @@ main = function() {
 
   App.IndexController = Ember.Controller.extend({
     login: function() {
-      window.open("https://www.facebook.com/dialog/oauth?client_id=1399123866999297&redirect_uri=https://localhost/#login", "Login", "height=200,width=150");
+      window.open("https://www.facebook.com/dialog/oauth?client_id=269779866505260&redirect_uri=https://localhost:3000/#login", "Login", "height=200,width=150");
     }
   });
 };
