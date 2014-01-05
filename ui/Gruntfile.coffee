@@ -23,20 +23,16 @@ module.exports = (grunt) ->
           expand: true
           dest: 'build/'
         ]
-      neuter:
-        files: [
-          cwd: 'build/'
-          src: ['**']
-          expand: true
-          dest: 'public/'
-        ]
     neuter:
+      options:
+        template: '{%= src %}'
       application:
         src: 'build/js/app.js'
         dest: 'public/js/app.js'
 
 
-  grunt.loadNpmTasks('grunt-contrib-clean')
-  grunt.loadNpmTasks('grunt-contrib-copy')
+  grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-neuter'
 
-  grunt.registerTask('default', ['clean', 'copy:build', 'copy:neuter']);
+  grunt.registerTask('default', ['clean', 'copy:build', 'neuter']);
