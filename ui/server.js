@@ -11,4 +11,4 @@ var app = express();
 
 https.createServer(options, app).listen(3000);
 
-app.use("/", express.static(__dirname));
+app.use("/", express.static(__dirname + "/public"));
