@@ -1,6 +1,7 @@
 require 'bower_components/jquery/jquery.js'
 require 'bower_components/handlebars/handlebars.js'
 require 'bower_components/ember.js/ember.js'
+require 'js/templates.js'
 
 main = ->
   App = Ember.Application.create()

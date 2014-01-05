@@ -15,6 +15,12 @@ module.exports = (grunt) ->
         src: ['**/*.coffee']
         dest: 'build/js/'
         ext: '.js'
+    emberTemplates:
+      compile:
+        options:
+          templateBasePath: 'app/js/'
+        files:
+          'build/js/templates.js': '**/*.handlebars'
     copy:
       build:
         files: [
@@ -35,13 +41,14 @@ module.exports = (grunt) ->
     neuter:
       options:
         template: '{%= src %}'
+        basePath: 'build/'
       application:
         src: 'build/js/app.js'
         dest: 'public/js/app.js'
     watch:
       scripts:
         files: ['app/js/**']
-        tasks: ['copy:build', 'neuter']
+        tasks: ['coffee', 'emberTemplates', 'copy:build', 'neuter']
       other:
         files: ['app/index.html', 'app/css/**']
         tasks: ['copy:build']
@@ -50,9 +57,10 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-ember-templates'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-neuter'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask('default', ['clean', 'coffee', 'copy:build', 'neuter']);
+  grunt.registerTask('default', ['clean', 'coffee', 'emberTemplates', 'copy:build', 'neuter'])
   grunt.registerTask('runw', ['default', 'watch'])
