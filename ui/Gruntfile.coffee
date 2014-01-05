@@ -6,6 +6,15 @@ module.exports = (grunt) ->
         'build',
         'public'
       ]
+    coffee:
+      options:
+        bare: true
+      glob_to_multiple:
+        expand: true
+        cwd: 'app/js/'
+        src: ['**/*.coffee']
+        dest: 'build/js/'
+        ext: '.js'
     copy:
       build:
         files: [
@@ -40,8 +49,10 @@ module.exports = (grunt) ->
 
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
+  grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-neuter'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask('default', ['clean', 'copy:build', 'neuter', 'watch']);
+  grunt.registerTask('default', ['clean', 'coffee', 'copy:build', 'neuter']);
+  grunt.registerTask('runw', ['default', 'watch'])
