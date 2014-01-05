@@ -29,10 +29,19 @@ module.exports = (grunt) ->
       application:
         src: 'build/js/app.js'
         dest: 'public/js/app.js'
+    watch:
+      scripts:
+        files: ['app/js/**']
+        tasks: ['copy:build', 'neuter']
+      other:
+        files: ['app/index.html', 'app/css/**']
+        tasks: ['copy:build']
+
 
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-neuter'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask('default', ['clean', 'copy:build', 'neuter']);
+  grunt.registerTask('default', ['clean', 'copy:build', 'neuter', 'watch']);
