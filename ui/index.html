@@ -3,19 +3,14 @@
 <head>
 <meta charset="utf-8">
 <title>Ember Starter Kit</title>
-  <script data-main="/js/app" src="js/libs/require.js"></script>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <script type="text/x-handlebars">
     <h2>Welcome to Ember.js</h2>
-
-    {{outlet}}
-  </script>
-
-  <script type="text/x-handlebars" id="index">
     <ul>
+    {{model}}
     {{#each item in model}}
       <li>{{item}}</li>
     {{/each}}
@@ -23,5 +18,6 @@
     <button id="login" {{action "login"}}>Login</button>
     </ul>
   </script>
+  <script data-main="/js/app" src="js/libs/require.js"></script>
 </body>
 </html>
