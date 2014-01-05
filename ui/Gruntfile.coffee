@@ -1,6 +1,11 @@
 module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
+    clean:
+      build: [
+        'build',
+        'public'
+      ]
     copy:
       main:
         files: [
@@ -15,6 +20,7 @@ module.exports = (grunt) ->
         ]
 
 
+  grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['copy']);
+  grunt.registerTask('default', ['clean', 'copy']);
