@@ -5,6 +5,9 @@
     "Jonathan Collins <jcollins1991@gmail.com>"
   ],
   "license": "MIT",
+  "dependencies": {
+    "ember.js": "ember#v1.2.0"
+  },
   "ignore": [
     "**/.*",
     "node_modules",

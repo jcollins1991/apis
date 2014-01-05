@@ -1,4 +1,4 @@
-require(['js/libs/jquery.js', 'js/libs/handlebars.js', 'js/libs/ember.js'], function() {
+require(['bower_components/jquery/jquery.js', 'bower_components/handlebars/handlebars.js', 'bower_components/ember.js/ember.js'], function() {
   main = function() {
     App = Ember.Application.create();
 
